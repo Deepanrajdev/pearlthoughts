@@ -1,0 +1,21 @@
+name: Destroy Medusa Infrastructure
+
+on:
+  workflow_dispatch:  # lets you manually trigger the workflow in GitHub UI
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform -chdir=terraform init
+
+      - name: Terraform Destroy
+        run: terraform -chdir=terraform destroy -auto-approve
