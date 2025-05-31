@@ -66,7 +66,7 @@ resource "aws_ecs_cluster" "medusa_cluster" {
 }
 
 # IAM Role for ECS Task Execution
-resource "aws_iam_role" "ecs_task_execution_role" {
+resource "aws_iam_role" "ecs_task_execution_rolE" {
   name = "ecsTaskExecutionRole"
 
   assume_role_policy = jsonencode({
@@ -75,7 +75,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
       Action = "sts:AssumeRole",
       Effect = "Allow",
       Principal = {
-        Service = "ecs-tasks.amazonaws.com"
+        Service = "ecs-tasks.amazonaws.com" #
       }
     }]
   })
